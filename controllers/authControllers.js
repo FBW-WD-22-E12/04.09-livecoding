@@ -6,3 +6,4 @@ export const loginHandler = (req, res)=>{
 export const registrationHandler = (req, res) =>{
     res.send('Reached registration end point')
 }
+

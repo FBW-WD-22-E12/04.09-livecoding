@@ -2,18 +2,33 @@ import express from 'express'
 
 import { getAllProducts , deleteProduct, updateProduct, createProduct} from '../controllers/productsController.js'
 
-const routes = express.Router()
+const router = express.Router()
 
-routes.get('/products',  getAllProducts)
+router.get('/all-products',  getAllProducts)
 
-routes.delete('/products', deleteProduct)
+router.delete('/delete-product', deleteProduct)
 
-routes.post('/products', createProduct)
+router.post('/create-product', createProduct)
 
-routes.patch('/products', updateProduct)
-
-
+router.patch('/update-product', updateProduct)
 
 
-export default routes
+router.get('/single-product', (req, res) => {
+    res.send('Single product controller called')
+})
+
+/* router.get('/products',  getAllProducts)
+
+router.delete('/products', deleteProduct)
+
+router.post('/products', createProduct)
+
+router.patch('/products', updateProduct) */
+
+// Alternate for the above lines of code that are commented out.
+// An other way to define the routes where the end point is same but methods are different
+/* router.route('/products').get(getAllProducts).delete(deleteProduct).post(createProduct).patch(updateProduct) */
+
+
+export default router
 
